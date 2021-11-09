@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define CPP2 PRIME UPPER LIMIT 1000000//’Tõ‚·‚é’l‚ÌãŒÀ’l
+#define CPP2 PRIME UPPER LIMIT 1000000	// ’Tõ‚·‚é’l‚ÌãŒÀ’l
 
 int nth_prime(unsigned int a, unsigned int d, unsigned int n);
 bool is_prime(unsigned int n);	// “ü—Í‚µ‚½©‘R”‚ª‘f”‚©‚Ç‚¤‚©”»’è‚·‚é
@@ -26,13 +26,13 @@ int main() {
 int nth_prime(unsigned int a, unsigned int d, unsigned int n)
 {
 
-	unsigned int i = 1;		// “™·”—ñ a + d(n - 1) ‚Ìn
-	unsigned int count = 1;	// n”Ô–Ú‚Ì‘f”
-	unsigned int item = 0;	// “™·”—ñ a + d(n - 1) ‚Ìn€–Ú‚ğŠi”[‚·‚é•Ï”
+	unsigned int i = 1;			// “™·”—ñ a + d(n - 1) ‚Ìn
+	unsigned int count = 1;		// n”Ô–Ú‚Ì‘f”
+	unsigned int item = 0;		// “™·”—ñ a + d(n - 1) ‚Ìn€–Ú‚ğŠi”[‚·‚é•Ï”
 
 	do {
 		item = a + (d * (i - 1));	// “™·”—ñ a + d(n - 1) ‚Ìn€–Ú
-		if (is_prime(item)) {	// ‘f”‚©‚Ç‚¤‚©”»’è
+		if (is_prime(item)) {		// ‘f”‚©‚Ç‚¤‚©”»’è
 			count++;
 		};
 		i++;
