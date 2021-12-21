@@ -37,7 +37,7 @@ namespace cpp2 {
                     value_ += std::max(num, 1) * u;
                     num = 0;
                 }
-            std::cout << s << std::endl;
+            //std::cout << s << std::endl;
             }
         }
 
@@ -51,8 +51,7 @@ namespace cpp2 {
          /* ----------------------------------------------------------------- */
         mcxi operator+(const mcxi & rhs) {
             mcxi tc(rhs);
-            int num;
-            num = this->value_ + rhs.value_;
+            tc.value_ = this->value_ + rhs.value_;
             return tc;
         };
 
@@ -64,7 +63,47 @@ namespace cpp2 {
          */
          /* ----------------------------------------------------------------- */
         std::string to_string() const {
-            return "XXX";
+            std::string mcxi;
+            int calc = value_;
+            if (calc / 1000 >= 1) {
+                if (calc / 1000 == 1) {
+                    mcxi += "m";
+                    calc = calc - 1000;
+                }
+                else {
+                    mcxi += std::to_string(calc / 1000) + "m";
+                    calc = calc - (calc / 1000) * 1000;
+                }
+            };
+            if (calc / 100 >= 1) {
+                if (calc / 100 == 1) {
+                    mcxi += "c";
+                    calc = calc - 100;
+                }
+                else {
+                    mcxi += std::to_string(calc / 100) + "c";
+                    calc = calc - (calc / 100) * 100;
+                }
+            };
+            if (calc / 10 >= 1) {
+                if (calc / 10 == 1) {
+                    mcxi += "x";
+                    calc = calc - 10;
+                }
+                else {
+                    mcxi += std::to_string(calc / 10) + "x";
+                    calc = calc - (calc / 10) * 10;
+                }
+            };
+            if (calc % 10 >= 1) {
+                if (calc % 10 == 1) {
+                    mcxi += "i";
+                }
+                else {
+                    mcxi += std::to_string(calc % 10) + "i";
+                }
+            };
+            return mcxi;
         };
 
     private:
