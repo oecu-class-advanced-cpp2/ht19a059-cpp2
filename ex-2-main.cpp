@@ -37,7 +37,7 @@ namespace cpp2 {
                     value_ += std::max(num, 1) * u;
                     num = 0;
                 }
-            //std::cout << s << std::endl;
+                //std::cout << s << std::endl;
             }
         }
 
@@ -49,7 +49,7 @@ namespace cpp2 {
            2 つのオブジェクトの加算結果を取得します。
          */
          /* ----------------------------------------------------------------- */
-        mcxi operator+(const mcxi & rhs) {
+        mcxi operator+(const mcxi& rhs) {
             mcxi tc(rhs);
             tc.value_ = this->value_ + rhs.value_;
             return tc;
@@ -86,15 +86,13 @@ namespace cpp2 {
                 }
             };
             if (calc / 10 >= 1) {
-                if (calc / 10 == 1) {
+                if (calc % 10 == 1) {
                     mcxi += "x";
-                    calc = calc - 10;
                 }
                 else {
                     mcxi += std::to_string(calc / 10) + "x";
-                    calc = calc - (calc / 10) * 10;
                 }
-            };
+            }
             if (calc % 10 >= 1) {
                 if (calc % 10 == 1) {
                     mcxi += "i";
@@ -116,6 +114,21 @@ namespace cpp2 {
             }
             return -1;
         };
+
+        int calc(std::string &mcxi, int &calc, std::string& ) {
+
+            if (calc / 10 >= 1) {
+                if (calc / 10 == 1) {
+                    mcxi += "x";
+                    calc = calc - 10;
+                }
+                else {
+                    mcxi += std::to_string(calc / 10) + "x";
+                    calc = calc - (calc / 10) * 10;
+                }
+            };
+        };
+
         int value_;
     };
 }
