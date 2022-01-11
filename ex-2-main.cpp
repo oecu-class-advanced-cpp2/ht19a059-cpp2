@@ -115,18 +115,8 @@ namespace cpp2 {
             return -1;
         };
 
-        int calc(std::string &mcxi, int &calc, std::string& ) {
+        bool mcix_regulation() {
 
-            if (calc / 10 >= 1) {
-                if (calc / 10 == 1) {
-                    mcxi += "x";
-                    calc = calc - 10;
-                }
-                else {
-                    mcxi += std::to_string(calc / 10) + "x";
-                    calc = calc - (calc / 10) * 10;
-                }
-            };
         };
 
         int value_;
